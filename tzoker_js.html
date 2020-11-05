@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tzoker</title>
+    <style>
+    table {
+      border: 2px solid red;
+      padding:20px;
+      margin: 20px;
+    }
+    tr {
+      padding:20px;
+      margin: 20px;
+    }
+    th {
+      border: 2px solid white;
+      color: white;
+      background-color: black;
+    }
+    td {
+      border: 2px solid white;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    </style>
+
+    <script>
+      var rows = window.prompt('How many rows do you want;');
+      var columns = window.prompt('How many columns do you want;');
+      var tzokernumber = window.prompt("Your Tzoker Number, Please.");
+
+      rows++
+      document.write("<table>");
+      var number = 1;
+      for (var i = 0; i < rows; i ++)  {
+        document.write("<tr>");
+
+        for (var j = 0; j < columns; j ++) {
+          if (i == 0) {
+          document.write("<th>Col_"+(j+1)+"</th>");
+          } else {
+              if (number == tzokernumber) {
+                document.write("<td>"+ "X" +"</td>");
+                number++;
+              } else {
+              document.write("<td>"+ (number++) +"</td>");
+              }
+          }
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+
+    </script>
+</head>
+
+<body>
+</body>
+</html>
