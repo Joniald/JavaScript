@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width", init>
+<title>Pizzas</title>
+
+<script>
+//Internal lists.
+var Ordinary = ['Mozzarella', 'Pepperoni', 'Bacon', 'Sausage', 'Ham', 'Mushroom', 'Olive', 'Pineapple', 'Tomato Sause'];
+var Size_list = ['Small', 'Normal', 'Large'];
+var Vigan = ['Mushroom', 'Olive', 'Pineapple', 'Tomato Sause'];
+
+//External variables.
+pizza01 = window.prompt('What is your first favorite pizza ingredient?' + ' List: ' + Ordinary +'.').toUpperCase();
+pizza02 = window.prompt('What is your second favorite pizza ingredient?' + ' List: ' + Ordinary +'.').toUpperCase();
+pizza03 = window.prompt('What is your third favorite pizza ingredient?' + ' List: ' + Ordinary +'.').toUpperCase();
+size = window.prompt('The size of pizza?' + "List: " + Size_list +'.').toUpperCase();
+var Order = [pizza01, pizza02, pizza03, size];
+
+//Intenal lists mapping to UpperCase.
+Ordinary = Ordinary.map(Ordinary => Ordinary.toUpperCase());
+Vigan = Vigan.map(Vigan => Vigan.toUpperCase()) ;
+Size_list = Size_list.map(Size_list => Size_list.toUpperCase());
+
+
+class pizzaOrder {
+  // The constructor where inputs are arrays.
+  constructor(ingredients,size,vigan) {
+    this.ingredients = ingredients;
+    this.size = size;
+    this.vigan = vigan;
+  }
+  // If external variables are inside the internal lists.
+  ingredientsIncludes (Order) {
+    if (this.ingredients.includes(Order[0]) && this.ingredients.includes(Order[1]) && this.ingredients.includes(Order[2]) &&
+     this.size.includes(Order[3])) {
+     return true;
+    }
+    else {
+      document.write('We are sorry. We do not have these ingredients or this size.');
+      document.write('<br>');
+      document.write('Please, pick up an ingrendient or a size from the list.');
+    }
+  }
+  // If external variables are different or not.
+  ingredientsDifferent (Order) {
+    if (Order[0] !== Order[1] && Order[0] !== Order[2] && Order[1] !== Order[2] ) {
+     return true;
+    }
+    else {
+     document.write('You have to choose three different ingredients.')
+    }
+  }
+  // All the conditions with the discounts.
+  sizeViganDiscount (Order) {
+   if (this.vigan.includes(Order[0]) && this.vigan.includes(Order[1]) && this.vigan.includes(Order[2]) && this.size[2] == Order[3]) {
+    document.write('You have the maximum discount 50% because you ordered Big-Vigan Pizza.');
+   }
+   else if (this.vigan.includes(Order[0]) && this.vigan.includes(Order[1]) && this.vigan.includes(Order[2])) {
+    document.write('You are a vigan. You have discount 25%.');
+   }
+   else if (this.size[2] == Order[3]) {
+    document.write('You have discount 25% because you ordered Big size pizza.');
+   }
+   else {
+    document.write('You have no discount.');
+   }
+  }
+  // The final method which includes all the previous methods.
+  pizzaFinalMethod (Order) {
+    if (this.ingredientsIncludes (Order) == true && this.ingredientsDifferent (Order) == true) {
+      document.write('Your pizza will contain' + ' ' + Order[0].toLowerCase() + ' - ' + Order[1].toLowerCase() + ' - ' + Order[2].toLowerCase() + '.');
+      document.write('<br>');
+      document.write('Do you want to order it?');
+      document.write('<br>');
+      this.sizeViganDiscount (Order)
+    }
+    else {
+      return false;
+    }
+  }
+
+
+}
+
+// We constract the Object.
+pizza_first = new pizzaOrder(Ordinary,Size_list,Vigan);
+// We call three methods from class pizzaOrder.
+pizza_first.pizzaFinalMethod(Order);
+
+</script>
+
+</head>
+
+<body>
+ <p></p>
+</body>
+
+</html>
