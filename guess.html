@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width", init>
+<title>Guess</title>
+
+<script>
+  document.write('<h1>');
+
+  var number1;
+  var number2;
+  var rep;
+  var frep;
+
+  number1 = window.prompt('The first player has to give a number between 1 and 10 ( For example: 6 ).');
+
+  if (number1 > 1 && number1 < 11) {
+    frep = false;
+    rep = 0;
+    number2 = window.prompt('The second player has to give a number between 1 and 10 ( For example: 6 ).');
+
+    while (frep === false) {
+
+      if (number2 > number1 && number2 > 1 && number2 < 11) {
+      number2 = window.prompt('Your guess is higher. Give a lower number than' + ' ' + number2 + ' ' + ' and larger than 1.');
+      rep = rep + 1;
+      frep = false;
+      }
+      else if (number2 < number1 && number2 > 1 && number2 < 11) {
+      number2 = window.prompt('Your guess is lower. Give a higher number than' + ' ' + number2 + ' ' + ' and lower than 10.');
+      rep = rep + 1;
+      frep = false;
+      }
+      else if (number2 == number1 && number2 > 1 && number2 < 11) {
+      document.write('Your guessed the number with' + ' ' + rep + ' ' + 'attempts.');
+      frep = true;
+      }
+      else {
+      number2 = window.prompt('The second player has to give a number between 1 and 10 ( For example: 8 ).')
+      rep = rep + 1;
+      frep = false;
+      }
+    }
+  }
+  else {
+     document.write('The first player has to give a number between 1 and 10 ( For example: 8 ).');
+  }
+
+  document.write('</h1>');
+</script>
+
+</head>
+
+
+
+<body>
+ <p></p>
+</body>
+</html>
