@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width", init>
+<title>Pizzas</title>
+
+<script>
+  document.write('<h1>');
+
+  var Ordinary = ['Mozzarella', 'Pepperoni', 'Bacon', 'Sausage', 'Ham', 'Mushroom', 'Olive', 'Pineapple', 'Tomato Sause'];
+  var Vigan = ['Mushroom', 'Olive', 'Pineapple', 'Tomato Sause'];
+  var Size_list = ['Small', 'Normal', 'Large'];
+  var pizza01, pizza02, pizza03, pizzafull, size;
+
+  pizza01 = window.prompt('What is your first favorite pizza ingredient?' + ' List: ' + Ordinary +'.').toUpperCase();
+  pizza02 = window.prompt('What is your second favorite pizza ingredient?' + ' List: ' + Ordinary +'.').toUpperCase();
+  pizza03 = window.prompt('What is your third favorite pizza ingredient?' + ' List: ' + Ordinary +'.').toUpperCase();
+  size = window.prompt('The size of pizza?' + "List: " + Size_list +'.').toUpperCase();
+
+  Ordinary = Ordinary.map(Ordinary => Ordinary.toUpperCase());
+  Vigan = Vigan.map(Vigan => Vigan.toUpperCase()) ;
+  Size_list = Size_list.map(Size_list => Size_list.toUpperCase());
+
+  if (Ordinary.includes(pizza01) && Ordinary.includes(pizza02) && Ordinary.includes(pizza03)) {
+
+    if (pizza01 !== pizza02 && pizza01 !== pizza03 && pizza02 !== pizza03 ) {
+      pizzafull = 'Your pizza will contain' + ' ' + pizza01.toLowerCase() + ' - ' + pizza02.toLowerCase() + ' - ' + pizza03.toLowerCase() + '.';
+      document.write(pizzafull);
+      document.write('<br>');
+      document.write('Do you want to order it?');
+      document.write('<br>');
+
+       if (Vigan.includes(pizza01) && Vigan.includes(pizza02) && Vigan.includes(pizza03) && size == Size_list[2]) {
+         document.write('You have the maximum discount 50% because you ordered Big-Vigan Pizza');
+       }
+       else if (Vigan.includes(pizza01) && Vigan.includes(pizza02) && Vigan.includes(pizza03)) {
+         document.write('You are a vigan. You have discount 25%');
+       }
+       else if (size == Size_list[2]){
+         document.write('You have discount 25%');
+       }
+       else {
+         document.write('You have no discount');
+       }
+
+    }
+
+    else {
+     document.write('You have to choose three different ingredients.')
+    }
+  }
+
+  else {
+   document.write('We are sorry. We do not have these ingredients.');
+   document.write('<br>');
+   document.writ'Please, pick up an ingrendient or a size from the list.');
+  }
+
+
+  document.write('</h1>');
+</script>
+
+</head>
+
+
+
+<body>
+ <p></p>
+</body>
+</html>
