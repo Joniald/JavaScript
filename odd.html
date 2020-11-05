@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width", init>
+<title>Odd</title>
+
+<script>
+  document.write('<h1>');
+  var num;
+  num = window.prompt('Give me a number (Has to be intenger).');
+  if (isNaN(parseInt(num)) === true) {
+    document.write('Please, give me a number (Has to be intenger).');
+
+  }
+  else {
+    document.write('Answer: <br>');
+    if (num % 2 == 1) {
+      document.write('Your number is ODD.');
+      document.write('<br>');
+
+    }
+    else {
+    document.write('Your number is EVEN.')
+    }
+  }
+  document.write('</h1>');
+</script>
+
+</head>
+
+
+
+<body>
+ <p></p>
+</body>
+</html>
